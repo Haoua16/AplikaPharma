@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('depenses', function (Blueprint $table) {
             $table->id();
+            $table->string('description');
+            $table->date('date_depense');
+            $table->string('montant');
+            $table->string('justificatif');
+
+            $table->unsignedBigInteger("id_users");
+            $table->foreign('id_users')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
