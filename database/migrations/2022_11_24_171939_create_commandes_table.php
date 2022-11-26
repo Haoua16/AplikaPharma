@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('commandes', function (Blueprint $table) {
             $table->id(); 
             $table->string('ordonnance'); 
-            $table->string('statut');           
+            $table->string('statut');      
+                 
             $table->unsignedBigInteger("id_medicaments")->nullable();
                 $table->foreign('id_medicaments')
                     ->references('id')
