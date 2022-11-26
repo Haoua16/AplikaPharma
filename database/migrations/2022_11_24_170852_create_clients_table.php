@@ -18,6 +18,13 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('assurance');
+
+            $table->unsignedBigInteger("id_users");
+            $table->foreign('id_users')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+                
             $table->timestamps();
         });
     }
