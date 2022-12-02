@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('promoteurs', function (Blueprint $table) {
             $table->id();
+            $table->string('profile_img');
             $table->string('nom');
             $table->string('prenom');
             $table->string('email');
