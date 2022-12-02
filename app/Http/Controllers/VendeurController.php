@@ -54,7 +54,7 @@ class VendeurController extends Controller
                                 'password' => bcrypt($request['password']),
                             ]
                             );                          
-                            return redirect('addnewvendeurpage');                            
+                            return redirect('addnewvendeurpage')->with('success', 'vendeur ajouté avec succèss!!!');;                            
                     }
                 }
     }
