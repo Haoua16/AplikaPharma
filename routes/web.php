@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VendeurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route pour le vendeur
+Route::get('/addnewvendeurpage', [VendeurController::class, 'index'])->name('pagedajout_vendeur');
+Route::post('/addnewvendeurformulaire', [VendeurController::class, 'store'])->name('formu_dajout_vendeur');
+

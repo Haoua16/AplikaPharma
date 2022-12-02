@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Vendeur extends Model
 {
     use HasFactory;
-
+    protected $fillable=
+    [
+        'nom',
+        'prenom',
+        'email',	
+        'profile_img',
+        'password',
+        'id_users'
+    ];
     public function user()
     {
         return $this->belongsTo(User::class, 'id_users');
