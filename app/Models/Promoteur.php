@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Promoteur extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nom',
+        'prenom',
+        'email',
+        'password',
+        'userId',
+    ];
 
     public function user()
     {
