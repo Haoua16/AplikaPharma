@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="assets/css/app.css" rel="stylesheet">
     <link href="assets/css/icons.css" rel="stylesheet">
-    <title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
+    <title>Applika | Pharma</title>
 </head>
 
 <body class="bg-login">
@@ -45,22 +45,35 @@
                                     <div class="form-body">
                                         <form class="row g-3">
                                             <div class="col-12">
-                                                <label for="inputEmailAddress" class="form-label">Nom d'utilisateur</label>
-                                                <input type="text" class="form-control" id="inputEmailAddress" placeholder="Tapez votre nom d'utilisateur">
+                                                <label for="inputEmailAddress" class="form-label">Adresse mail</label>
+                                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" id="inputEmailAddress" placeholder="Tapez votre nom d'utilisateur">
+                                                @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                             <div class="col-12">
                                                 <label for="inputChoosePassword" class="form-label">Mot de passe</label>
                                                 <div class="input-group" id="show_hide_password">
-                                                    <input type="password" class="form-control border-end-0" id="inputChoosePassword" value="" placeholder="Entrez votre mot de passe"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+                                                    <input type="password" class="form-control border-end-0 @error('password') is-invalid @enderror" name="password" id="inputChoosePassword" value="" placeholder="Entrez votre mot de passe"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+                                                    @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                                                    <label class="form-check-label" for="flexSwitchCheckChecked">Se souvenir de moi</label>
+                                                    <input class="form-check-input" type="checkbox" name="remenber" id="flexSwitchCheckChecked" checkedname="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="remember">Se souvenir de moi</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 text-end"> <a href="authentication-forgot-password.html">Mot de passe oublié ?</a>
+                                            <div class="col-md-6 text-end">
+                                                @if (Route::has('password.request'))
+                                                <a href="{{ route('password.request') }}">Mot de passe oublié ?</a>
+                                                @endif
                                             </div>
                                             <div class="col-12">
                                                 <div class="d-grid">
