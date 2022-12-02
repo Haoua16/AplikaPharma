@@ -40,7 +40,8 @@
                                         <h3 class="">Ajouter utilisateur</h3>
                                     </div>
                                     <div class="form-body">
-                                        <form class="row g-3">
+                                        <form method="POST" action="{{Route('promoteur_register')}}" class="row g-3">
+                                            @csrf
                                             <div class="col-sm-6">
                                                 <label for="inputFirstName" class="form-label">Prénom</label>
                                                 <input type="text" name="firstname" class="form-control" id="inputFirstName" placeholder="Prénom">
