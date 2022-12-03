@@ -32,27 +32,47 @@
                     <div class="col mx-auto">
                         <div class="my-4 text-center">
                             <img src="assets/images/logo-img.png" width="180" alt="" />
+                            @if(count($errors) > 0)
+                            <div class=" alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+
+                            @if (session('success'))
+                            <div class="alert alert-success">
+                                <p>{{ session('success') }}</p>
+                            </div>
+                            @endif
                         </div>
                         <div class="card">
                             <div class="card-body">
                                 <div class="border p-4 rounded">
                                     <div class="text-center">
-                                        <h3 class="">Ajouter utilisateur</h3>
+                                        <h3 class="">Ajouter Promoteur</h3>
                                     </div>
                                     <div class="form-body">
-                                        <form method="POST" action="{{Route('promoteur_register')}}" class="row g-3">
+                                        <form class="row g-3" action="{{  route('formu_dajout_vendeur') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="col-sm-6">
                                                 <label for="inputFirstName" class="form-label">Prénom</label>
-                                                <input type="text" name="firstname" class="form-control" id="inputFirstName" placeholder="Prénom">
+                                                <input type="text" name="nom" class="form-control" id="inputFirstName" placeholder="Prénom">
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="inputLastName" class="form-label">Nom</label>
-                                                <input type="text" name="lastname" class="form-control" id="inputLastName" placeholder="Nom">
+                                                <input type="text" name="prenom" class="form-control" id="inputLastName" placeholder="Nom">
                                             </div>
                                             <div class="col-12">
                                                 <label for="inputEmailAddress" class="form-label">Adresse Email</label>
                                                 <input type="email" name="email" class="form-control" id="inputEmailAddress" placeholder="example@user.com">
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <label for="inputFirstName" class="form-label">Photo profil</label>
+                                                <input type="file" name="profile_img" class="form-control" id="profile_img" placeholder="Prénom">
                                             </div>
                                             <div class="col-12">
                                                 <label for="inputChoosePassword" class="form-label">Mot de passe</label>
