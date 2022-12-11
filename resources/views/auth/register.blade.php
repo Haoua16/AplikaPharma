@@ -60,15 +60,20 @@
                                             @csrf
                                             <div class="col-sm-6">
                                                 <label for="inputFirstName" class="form-label">Prénom</label>
-                                                <input type="text" name="nom" class="form-control" id="inputFirstName" placeholder="Prénom">
+                                                <input type="text" name="prenom" class="form-control" id="inputFirstName" placeholder="Prénom">
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="inputLastName" class="form-label">Nom</label>
-                                                <input type="text" name="prenom" class="form-control" id="inputLastName" placeholder="Nom">
+                                                <input type="text" name="nom" class="form-control" id="inputLastName" placeholder="Nom">
                                             </div>
                                             <div class="col-12">
                                                 <label for="inputEmailAddress" class="form-label">Adresse Email</label>
                                                 <input type="email" name="email" class="form-control" id="inputEmailAddress" placeholder="example@user.com">
+                                            </div>
+
+                                            <div class="col-12">
+                                                <label for="inputEmailAddress" class="form-label">Statut</label>
+                                                <input type="text" name="statut" class="form-control" id="inputEmailAddress" placeholder="Vendeur">
                                             </div>
                                             <div class="col-sm-12">
                                                 <label for="inputFirstName" class="form-label">Photo profil</label>
